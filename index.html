@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<!--
+  [수정 가이드 - 전체 구조]
+  index.html : 구조/문구 (이 파일)  |  css/style.css : 디자인  |  js/main.js : 동작
+  문구 수정  → 각 구역의 텍스트를 직접 수정
+  이미지 교체 → <img src="images/파일명"> 의 src만 바꾸면 됨 (웹 주소 https://... 도 가능)
+  구역 순서: 1 헤더 → 2 메인배너 → 3 브랜드소개 → 4 선물세트 → 5 차종류 → 6 선물하기 → 7 콘텐츠카드 → 8 푸터
+-->
+<html lang="ko"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OSULLOC 오설록 | 고마움을 담은 한 잔</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;600;800&display=swap">
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+/* Floating QR: isolated styles to preserve the original website */
+.os-qr-float{position:fixed;right:20px;bottom:22px;z-index:9998;width:138px;box-sizing:border-box;padding:11px 10px 9px;border:1px solid #d8e4d7;border-radius:16px;background:#fffef9;box-shadow:0 5px 24px rgba(30,65,39,.17);text-align:center;font-family:'Noto Sans KR',sans-serif;color:#284b32;}
+.os-qr-float img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;}
+.os-qr-float .os-qr-caption{display:block;font-size:11px;line-height:1.45;font-weight:600;margin-top:5px;}
+.os-qr-float .os-qr-close{position:absolute;right:-8px;top:-9px;border:0;border-radius:50%;width:25px;height:25px;background:#3c6544;color:white;font-size:17px;line-height:25px;cursor:pointer;box-shadow:0 2px 6px #0002;}
+.os-qr-float[hidden]{display:none!important;}
+@media(max-width:640px){.os-qr-float{width:96px;right:10px;bottom:68px;padding:7px 6px 6px;border-radius:12px}.os-qr-float .os-qr-caption{font-size:9px}.os-qr-float .os-qr-close{width:23px;height:23px;line-height:23px;}}
+</style>
+</head><body>
+
+<!-- ===== 1. 헤더 : 메뉴 이름/이동 위치는 href="#id" 와 아래 섹션 id가 일치해야 함 ===== -->
+<header class="header">
+  <a class="logo" href="#top">OSULLOC<small>오설록</small></a>
+  <nav class="gnb" aria-label="주요 메뉴">
+    <a href="https://www.osulloc.com/kr/ko/about/since1979" target="_blank" rel="noopener noreferrer">브랜드 이야기</a><a href="#teas">제품</a><a href="https://www.osulloc.com/kr/ko/shop/item/gift" target="_blank" rel="noopener noreferrer">선물세트</a><a href="https://www.osulloc.com/kr/ko/magazine" target="_blank" rel="noopener noreferrer">티라이프</a><a href="https://www.osulloc.com/kr/ko/life/event/list/ing" target="_blank" rel="noopener noreferrer">이벤트</a>
+  </nav>
+  <div class="icons">
+    <button aria-label="검색">🔍</button><button aria-label="마이페이지">👤</button><button aria-label="장바구니">🛒</button>
+    <button class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+  </div>
+</header>
+<!-- 메뉴 링크 수정: 상단 메뉴와 아래 모바일 메뉴의 href 값을 각각 변경 -->
+<!-- 모바일 전체 메뉴 (JS가 .open 클래스를 토글) -->
+<nav class="mnav" id="mnav" aria-label="모바일 메뉴">
+  <a href="https://www.osulloc.com/kr/ko/about/since1979" target="_blank" rel="noopener noreferrer">브랜드 이야기</a><a href="#teas">제품</a><a href="https://www.osulloc.com/kr/ko/shop/item/gift" target="_blank" rel="noopener noreferrer">선물세트</a><a href="https://www.osulloc.com/kr/ko/magazine" target="_blank" rel="noopener noreferrer">티라이프</a><a href="https://www.osulloc.com/kr/ko/life/event/list/ing" target="_blank" rel="noopener noreferrer">이벤트</a>
+</nav>
+
+<main id="top">
+<!-- ===== 2. 메인 배너 : 슬라이드는 .slide 블록을 복사/삭제하면 개수 자동 반영(JS) ===== -->
+<section class="hero" id="hero" aria-label="메인 배너">
+  <i class="cloud c1"></i><i class="cloud c2"></i>
+  <span class="heart" style="left:10%">♥</span><span class="heart" style="left:45%;animation-delay:2s">♥</span><span class="heart" style="left:85%;animation-delay:4s">♥</span>
+  <div class="slide on">
+    <h1>고마움을 담은 한 잔♡</h1><p>오설록 티 선물세트</p>
+    <div class="float"><img class="art round" src="images/hero.jpg" alt="차를 마시는 캐릭터들"><i class="steam"></i><i class="steam s2"></i></div>
+  </div>
+  <div class="slide">
+    <h1>소중한 분께 전하는 마음</h1><p>제주 순수녹차 · 삼다 꿀배 티 · 제주 동백꽃 티</p>
+    <div class="float"><img class="art round" src="images/shop.jpg" alt="오설록 쇼핑백과 티 3종"></div>
+  </div>
+  <div class="slide">
+    <h1>제주의 자연이 빚은 한 잔</h1><p>녹차 잎, 제주 배, 동백꽃의 향긋함</p>
+    <div class="float"><img class="art box" src="images/scene.jpg" alt="제주 들판의 캐릭터와 오설록 티 3종"></div>
+  </div>
+  <button class="arrow prev" aria-label="이전">‹</button><button class="arrow next" aria-label="다음">›</button>
+  <div class="dots"></div><!-- 인디케이터는 JS가 자동 생성 -->
+</section>
+
+<!-- ===== 3. 브랜드 소개 : data-reveal = 스크롤 시 나타나는 요소 (fade / zoom / up) ===== -->
+<section class="brand" id="brand"><div class="wrap">
+  <div data-reveal="fade"><div class="blogo">OSULLOC</div>
+  <h2>오설록과 함께하는<br><b>특별한 티 라이프</b></h2></div>
+  <div class="bgrid">
+    <div><img class="mul sway" src="images/leaf.jpg" alt="녹차 잎"><img class="mul" data-reveal="zoom" src="images/pear.jpg" alt="제주 배"></div>
+    <img class="mul mid" data-reveal="up" src="images/cup.jpg" alt="유리 찻잔">
+    <img class="mul" data-reveal="zoom" src="images/cam.jpg" alt="동백꽃">
+  </div>
+</div></section>
+
+<!-- ===== 4. 선물세트 소개 : 버튼의 data-scroll 값 = 이동할 섹션 id ===== -->
+<section class="gift" id="gift"><div class="wrap">
+  <div data-reveal="fade"><h2>어떤 <em>마음</em>을 전하고 싶나요?</h2><p>감사의 마음, 차 한 잔에 담아보세요.</p></div>
+  <img class="art2 fade sway" data-reveal="zoom" src="images/gift.jpg" alt="선물상자를 든 캐릭터들">
+  <button class="btn" data-scroll="teas">선물세트 보러가기 ›</button>
+</div></section>
+
+<!-- ===== 5. 차 종류 : 카드 추가 시 button.card 블록을 복사. data-* 값이 모달에 표시됨 ===== -->
+<section class="teas" id="teas"><div class="wrap">
+  <div class="grid3">
+    <button class="card" data-reveal="up" data-name="제주 순수녹차" data-desc="깊고 깔끔한 맛" data-more="제주 유기농 녹차 100%. 부드럽고 깊은 풍미의 순수 녹차입니다. (2.0g × 20개입)" data-img="images/p1.jpg">
+      <img class="ill" src="images/i1.jpg" alt=""><span class="imgw"><img src="images/p1.jpg" alt="제주 순수녹차"></span><h3>제주 순수녹차</h3><p>깊고 깔끔한 맛</p></button>
+    <button class="card" data-reveal="up" data-name="삼다 꿀배 티" data-desc="달콤한 배의 향" data-more="달콤한 꿀과 배 향이 가득한 블렌디드 티입니다. (2.0g × 20개입)" data-img="images/p2.jpg">
+      <img class="ill" src="images/i2.jpg" alt=""><span class="imgw"><img src="images/p2.jpg" alt="삼다 꿀배 티"></span><h3>삼다 꿀배 티</h3><p>달콤한 배의 향</p></button>
+    <button class="card" data-reveal="up" data-name="제주 동백꽃 티" data-desc="은은하고 향긋한 향" data-more="은은한 꽃 향을 담은 동백꽃 블렌디드 티입니다. (2.0g × 20개입)" data-img="images/p3.jpg">
+      <img class="ill" src="images/i3.jpg" alt=""><span class="imgw"><img src="images/p3.jpg" alt="제주 동백꽃 티"></span><h3>제주 동백꽃 티</h3><p>은은하고 향긋한 향</p></button>
+  </div>
+  <p class="msg" data-reveal="fade">제주의 자연이 빚은 프리미엄 티<br>오설록의 특별한 선물세트를 만나보세요.</p>
+</div></section>
+
+<!-- ===== 6. 선물하기 배너 : 상품 링크로 보내려면 data-scroll 대신 <a href="주소"> 로 교체 ===== -->
+<section class="ban" id="banner"><div class="wrap">
+  <div data-reveal="fade"><h2>소중한 분께, <em>마음을 전해요♡</em></h2><p>감사한 마음을, 오설록 티 선물세트로</p></div>
+  <img class="art2 card24" data-reveal="zoom" src="images/bdc22179-cde0-46ec-aade-fb6e70961a51.png" alt="오설록 티 3종">
+  <button class="btn orange" data-scroll="gift">지금 선물하기 ›</button>
+</div></section>
+
+<!-- ===== 7. 콘텐츠 카드 : 각 카드는 <a href> 공식 링크(새 탭). 주소 변경은 href 값만 수정 ===== -->
+<section class="cards" id="cards"><div class="wrap">
+  <h2 data-reveal="fade">오설록에서 만나는 다양한 이야기</h2>
+  <div class="cgrid">
+    <a class="cc" href="https://www.osulloc.com/kr/ko/about/since1979" target="_blank" rel="noopener noreferrer" data-reveal="up"><span class="imgw"><img src="images/c1.jpg" alt=""></span><b>브랜드 이야기</b><small>제주 자연이 만든 차</small></a>
+    <a class="cc" href="https://www.osulloc.com/kr/ko/magazine" target="_blank" rel="noopener noreferrer" data-reveal="up"><span class="imgw"><img src="images/c2.jpg" alt=""></span><b>티라이프</b><small>일상 속 차 한 잔의 여유</small></a>
+    <a class="cc" href="https://www.osulloc.com/kr/ko/shop/item/gift" target="_blank" rel="noopener noreferrer" data-reveal="up"><span class="imgw"><img src="images/c3.jpg" alt=""></span><b>선물세트</b><small>마음을 전하는 특별한 선물</small></a>
+    <a class="cc" href="https://www.osulloc.com/kr/ko/life/event/list/ing" target="_blank" rel="noopener noreferrer" data-reveal="up"><span class="imgw"><img src="images/c4.jpg" alt=""></span><b>이벤트</b><small>지금, 특별한 혜택</small></a>
+  </div>
+</div></section>
+</main>
+
+<!-- ===== 8. 푸터 : 연두색 물결은 CSS(footer::before) ===== -->
+<footer class="footer"><img class="mul fcam" src="images/cam.jpg" alt=""><div class="blogo sm">OSULLOC</div>
+  <ul><li>이용약관</li><li>개인정보처리방침</li><li>고객센터</li></ul></footer>
+<button class="top" id="topBtn" aria-label="맨 위로">TOP</button>
+
+<!-- 공통 모달 (JS가 내용을 채움) -->
+<div class="ov" id="ov" hidden><div class="md" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <button class="x" id="mClose" aria-label="닫기">✕</button><img id="mImg" alt=""><div><h3 id="mTitle"></h3><strong id="mDesc"></strong><p id="mMore"></p></div></div></div>
+<script src="js/main.js"></script>
+
+<!-- Floating homepage QR; image embedded so no separate image file is needed -->
+<aside class="os-qr-float" id="osQrFloat" aria-label="오설록 홈페이지 QR코드">
+<button type="button" class="os-qr-close" aria-label="QR코드 닫기" onclick="document.getElementById('osQrFloat').hidden=true">×</button>
+<img src="data:image/png;base64,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" alt="오설록 홈페이지 QR코드">
+<span class="os-qr-caption">QR로 홈페이지 보기</span>
+</aside>
+</body></html>
